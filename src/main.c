@@ -12,7 +12,7 @@ int main(int argc,char** argv){
 
 		List* tokens = generateTokens(buffer);
 		printTokenList(tokens);
-	
+		deleteList(tokens);
 	}
 	return 0;
 }
