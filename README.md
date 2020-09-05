@@ -3,5 +3,7 @@
 * type make to build m68.
 
 ## usage: 
- ` ./m68 [INFILE] [OUTFILE] ` 
+```bash
+	./m68 [INFILE] [OUTFILE]
+``` 
 
