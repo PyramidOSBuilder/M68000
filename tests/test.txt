@@ -8,5 +8,9 @@ main:
 	move.l 0(a0),d2
 	move.l 1(a0,d0.w)
 	move.l 1(a0,d0.w*2)
+	move.l d0    ,     d2
+
+
+	move.b (a0)+      ,   			d2
 	ret
 
