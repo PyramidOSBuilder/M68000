@@ -1,6 +1,6 @@
-
+	;test code for this
 main:
-	move.w d0, 0x0000		;you are gay
+	move.w d0, 0x0000		;Hello world
 	move.l d0, 0x00000000
 	move.l (a0),d0
 	move.l (a1)+,d0
@@ -9,7 +9,7 @@ main:
 	move.l 1(a0,d0.w)
 	move.l 1(a0,d0.w*2)
 	move.l d0    ,     d2
-
+	       		 	; bunch of nonsense on this line 			LOL
 
 	move.b (a0)+      ,   			d2
 	ret
