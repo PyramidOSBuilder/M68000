@@ -96,7 +96,7 @@ List* generateTokens(char* buffer){
 		}else{
 			if(cur == '\n')
 				comment = 0;
-			captureIndex = i+1;
+			captureIndex = i;
 		}
 		last = cur;
 	}while((cur = buffer[i++]) != '\0');
