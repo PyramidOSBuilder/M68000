@@ -97,8 +97,11 @@ int main(int argc,char** argv){
 			}
 
 		}
-
-		FILE* fp = fopen("test.bin","wb");
+		FILE* fp = NULL;
+		if(argc < 3)
+			fp = fopen("test.bin","wb");
+		else
+			fp = fopen(argv[2],"wb");
 		fwrite(og,sizeof(uint8_t),(size_t)(code-og),fp);
 		fclose(fp);
 		free(og);
