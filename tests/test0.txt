@@ -6,4 +6,7 @@ main:
 	move.l d2, d3
 	move.w d1, d4
 	move.b d0, d5
+	move.l (a0),d0
+	move.l (a1)+,d0
+	move.l -(a0),d0
 	

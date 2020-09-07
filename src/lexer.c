@@ -7,7 +7,8 @@ uint8_t addrMode(listNode* start){
 	if(strcmp(t->token,"(") == 0){
 		t = (Token*)start->next->data;
 		if(t->token[0] == 'a'){
-			t = (Token*)start->next->next->data;
+			t = (Token*)start->next->next->next->data;
+			printf("token: %s\n",t->token);
 			if(strcmp(t->token,"+") == 0){
 				mode = 0x3;
 			}else{
