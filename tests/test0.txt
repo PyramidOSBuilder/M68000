@@ -1,0 +1,9 @@
+; Simple register movement
+main:
+	move.b #0x01,d0
+	move.w #0xfafa,d1
+	move.l #0xfafbfcfd, d2
+	move.l d2, d3
+	move.w d1, d4
+	move.b d0, d5
+	

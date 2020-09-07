@@ -5,6 +5,7 @@
 #define TOKEN_OPERATOR 1
 #define TOKEN_DIRECTIVE 2
 #define TOKEN_LABEL 3
+#define TOKEN_EOL 4
 #include <list.h>
 
 //Generic token struct

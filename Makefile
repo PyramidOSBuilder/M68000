@@ -5,7 +5,7 @@ cc=gcc
 cflags= -Wall -O2
 inc= -Iinclude
 libs=
-obj= src/list.o src/file.o src/token.o src/main.o
+obj= src/list.o src/file.o src/token.o src/lexer.o src/main.o
 
 .c.o:
 	$(cc) $(cflags) $(inc) -c $< -o $@

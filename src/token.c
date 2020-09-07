@@ -74,6 +74,13 @@ List* generateTokens(char* buffer){
 					curBuffer[i-captureIndex-1] = '\0';
 					curToken = newToken(curBuffer,TOKEN_OP);
 					addList(tokenList,curToken);
+					if(cur == '\n'){  
+						curBuffer = malloc(sizeof(char)*4);
+						strncpy(curBuffer,"EOL",3);
+						curBuffer[3] = '\0';
+						curToken = newToken(curBuffer,TOKEN_EOL);
+						addList(tokenList,curToken);
+					}
 				}
 				captureIndex = i;
 			}
