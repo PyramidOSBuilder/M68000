@@ -8,13 +8,15 @@
 ```
 
 ## Utils
-* hwrite - Program for writing bytes by hand to ouput file
+* hwrite - Program for writing bytes by hand to output file
+* hex	 - Program for dumping bin files to stdout in hex
 ### Usage
 ```bash
 	cd utils
 	make
 	./hwrite > [BINFILE]
 	make testbin bin=[BINFILE]
+	./hex [BINFILE] 
 ```
  
 ## Useful Docs
