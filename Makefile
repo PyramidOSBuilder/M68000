@@ -6,7 +6,7 @@ cflags= -Wall -O2
 inc= -Iinclude
 libs=
 obj= src/list.o src/file.o src/token.o src/lexer.o src/main.o
-
+bin= test.bin
 .c.o:
 	$(cc) $(cflags) $(inc) -c $< -o $@
 
@@ -18,4 +18,6 @@ clean:
 test0: 
 	./$(m68) tests/test.txt
 
+run: 
+	qemu-system-m68k -kernel $(bin)
 

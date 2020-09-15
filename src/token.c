@@ -67,7 +67,7 @@ List* generateTokens(char* buffer){
 				
 		}
 		if(comment == 0){
-			if(cur == ' ' || cur == '\t' || cur == '\n'){
+			if(!isNotWhtSpace(cur)){
 				if(captureIndex+1 != i && isNotWhtSpace(last)){
 					curBuffer = malloc(sizeof(char)* (i-captureIndex));
 					strncpy(curBuffer,&buffer[captureIndex],(i-captureIndex));
@@ -76,7 +76,7 @@ List* generateTokens(char* buffer){
 					addList(tokenList,curToken);
 					if(cur == '\n'){  
 						curBuffer = malloc(sizeof(char)*4);
-						strncpy(curBuffer,"EOL",3);
+						strcpy(curBuffer,"EOL");
 						curBuffer[3] = '\0';
 						curToken = newToken(curBuffer,TOKEN_EOL);
 						addList(tokenList,curToken);

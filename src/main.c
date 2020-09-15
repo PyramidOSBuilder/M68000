@@ -50,13 +50,18 @@ int main(int argc,char** argv){
 				listNode* operandStart = n;
 				srcMode = addrMode(n);
 				srcReg = registerNum(n);
-
-				while(((Token*)(n = n->next)->data)->token[0] != ','){
-					t = (Token*)n->data;
-					if(strcmp(t->token,"EOL") == 0){
-						printf("Error: Missing operand in move\n");
-						exit(1);
+				t = (Token*)n->data;
+				if(t->token[0] != '('){
+					while(((Token*)(n = n->next)->data)->token[0] != ','){
+						t = (Token*)n->data;
+						if(strcmp(t->token,"EOL") == 0){
+							printf("Error: Missing operand in move\n");
+							exit(1);
+						}
 					}
+				}else{
+					while(((Token*)(n = n->next)->data)->token[0] != ')');
+					n = n->next;
 				}
 				n = n->next;
 				dstMode = addrMode(n);
@@ -64,7 +69,7 @@ int main(int argc,char** argv){
 
 				printf("SRC MODE: %x|SRC REG: %x\n",srcMode,srcReg);
 				printf("DST MODE: %x|DST REG: %x\n",dstMode,dstReg);
-				op = (sizeField << 12) | (dstReg << 9) | (dstMode << 6) | (srcMode << 3) | srcReg;
+				op = (sizeField << 12) | ( (dstReg & 0x07) << 9) | ( dstMode << 6) | (srcMode << 3) | (srcReg & 0x07);
 				*code++ = (op & 0xff00) >> 8;
 				*code++ = op & 0x00ff;
 				if(srcMode == 0x7){
@@ -92,6 +97,16 @@ int main(int argc,char** argv){
 								break;
 						}
 					}
+				}else if(srcMode == 0x5){
+					t = (Token*)operandStart->next->data;
+					immed0 = strtol(t->token,NULL,0);
+					*code++ = (immed0 & 0xff00) >> 8;
+					*code++ = (immed0 & 0x00ff);
+				}else if(srcMode == 0x6){
+					t = (Token*)operandStart->next->data;
+					immed0 = strtol(t->token,NULL,0);
+					*code++ = 0x00;
+					*code++ = (immed0 & 0xff);
 				}
 
 			}

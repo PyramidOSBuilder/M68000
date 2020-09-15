@@ -16,7 +16,7 @@ int main(int argc,char** argv){
 	
 	int c = 0;
 	while((c = fgetc(fp)) != EOF)
-		printf("%x ",c);
+		printf("%02x ",c);
 	
 	fclose(fp);
 	
