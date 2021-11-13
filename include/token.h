@@ -7,12 +7,14 @@
 #define TOKEN_LABEL 3
 #define TOKEN_EOL 4
 #include <list.h>
-
+#include <stdint.h>
 //Generic token struct
 typedef struct Token{
 	char* token;
 	int type;
+	
 }Token;
+
 //Constructor
 Token* newToken(char* text,int type);
 //Deconstructor

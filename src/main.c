@@ -105,6 +105,7 @@ int main(int argc,char** argv){
 				}else if(srcMode == 0x6){
 					t = (Token*)operandStart->next->data;
 					immed0 = strtol(t->token,NULL,0);
+					printf("displacement: %02x\n",immed0);
 					*code++ = 0x00;
 					*code++ = (immed0 & 0xff);
 				}
